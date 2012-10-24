@@ -1,0 +1,28 @@
+{
+    "name": "nbi/translations",
+    "description": "Symfony translations",
+    "keywords": ["nbi"],
+    "homepage": "https://bitbucket.org/nbi/translations",
+    "type": "library",
+    "license": "BSD",
+    "authors": [
+        {
+            "name": "Sergey Smirnov",
+            "email": "sergey@nbi.me"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "v2.1.2",
+        "doctrine/orm": "2.2.*",
+        "doctrine/doctrine-bundle": "dev-master",
+        "sonata-project/admin-bundle": "dev-master",
+        "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "stof/doctrine-extensions-bundle": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Nbi": "src/"
+        }
+    }
+}
