@@ -16,7 +16,8 @@
     },
     "autoload": {
         "psr-0": {
-            "Nbi": "src/"
+            "Nbi//TranslationBundle" : ""
         }
-    }
+    },
+    "target-dir" : "Nbi/TranslationBundle"
 }
