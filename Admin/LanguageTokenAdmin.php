@@ -80,13 +80,13 @@ class LanguageTokenAdmin extends Admin
     public function postPersist($object)
     {
         $em = $this->container->get('doctrine.orm.default_entity_manager');
-        $translations = $em->getRepository("NbiTranslationsBundle:LanguageTranslation")->findByLanguageToken($object);
+        $translations = $em->getRepository("NbiTranslationBundle:LanguageTranslation")->findByLanguageToken($object);
 
         if (count($translations) == 0) {
             foreach ($this->configurationPool->getContainer()->getParameter('locales') as $locale) {
-                $translation = new \Application\Mojo\ProductBundle\Entity\LanguageTranslation();
+                $translation = new \Nbi\TranslationBundle\Entity\LanguageTranslation();
                 $translation->setTranslation($object->getToken());
-                $language = $em->getRepository("NbiTranslationsBundle:Language")->getLanguage($locale);
+                $language = $em->getRepository("NbiTranslationBundle:Language")->getLanguage($locale);
                 $translation->setLanguage($language);
                 $translation->setLanguageToken($object);
                 $em->persist($translation);

@@ -20,9 +20,9 @@ class DBLoader implements LoaderInterface
      */
     public function __construct(EntityManager $entityManager)
     {
-        $this->transaltionRepository = $entityManager->getRepository("NbiTranslationsBundle:LanguageTranslation");
-        $this->languageRepository = $entityManager->getRepository("NbiTranslationsBundle:Language");
-        $this->tokenRepository = $entityManager->getRepository("NbiTranslationsBundle:LanguageToken");
+        $this->transaltionRepository = $entityManager->getRepository("NbiTranslationBundle:LanguageTranslation");
+        $this->languageRepository = $entityManager->getRepository("NbiTranslationBundle:Language");
+        $this->tokenRepository = $entityManager->getRepository("NbiTranslationBundle:LanguageToken");
 
     }
 
