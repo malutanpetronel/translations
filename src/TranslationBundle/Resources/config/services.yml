@@ -1,0 +1,41 @@
+parameters:
+
+services:
+  form.type.translatable:
+    class: Nbi\TranslationBundle\Form\Type\TranslatedFieldType
+    tags:
+      - { name: form.type, alias: translatable_field}
+    arguments: [ @service_container, %locales%, [], lv]
+
+# Listeners
+  slug.listener:
+        class: Nbi\TranslationBundle\Listener\SlugUpdateListener
+        calls:
+            - [ setContainer, ["@service_container"] ]
+        tags:
+            - { name: doctrine.event_listener, event: postPersist, method: postPersist }
+            - { name: doctrine.event_listener, event: postUpdate, method: postUpdate }
+
+# services
+  translation.loader.db:
+        class: Nbi\TranslationBundle\Service\DBLoader
+        arguments: [@doctrine.orm.entity_manager]
+        tags:
+            - { name: translation.loader, alias: db}
+        calls:
+          - [ setContainer, ["@service_container"] ]
+
+  nbi.admin.language_token:
+    class: Nbi\TranslationBundle\Admin\LanguageTokenAdmin
+    tags:
+      - { name: sonata.admin, manager_type: orm, group: Translations, label: Tokens }
+    arguments: [null, Nbi\TranslationBundle\Entity\LanguageToken, null]
+    calls:
+      - [ addChild, ["@nbi.admin.language_translation"] ]
+      - [ setContainer, ["@service_container"] ]
+
+  nbi.admin.language_translation:
+    class: Nbi\TranslationBundle\Admin\LanguageTranslationAdmin
+    tags:
+      - { name: sonata.admin, manager_type: orm, group: Translations, label: Translations }
+    arguments: [null, Nbi\TranslationBundle\Entity\LanguageTranslation, null]
