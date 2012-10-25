@@ -29,7 +29,6 @@ class DBLoader implements LoaderInterface
     public function setContainer(ContainerInterface $container = null)
     {
         $this->container = $container;
-        $this->container->get('ladybug')->log(111);
     }
 
     function load($resource, $locale, $domain = 'messages')
