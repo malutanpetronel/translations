@@ -11,7 +11,7 @@ class LanguageRepository extends EntityRepository
     public function getLanguage($locale)
     {
         $query = $this->getEntityManager()
-            ->createQuery("SELECT l FROM NbiTrasnationBundle:Language l WHERE l . locale = :locale");
+            ->createQuery("SELECT l FROM NbiTranslationBundle:Language l WHERE l . locale = :locale");
         $query->setParameter("locale", $locale);
         return $query->getSingleResult();
     }
@@ -19,7 +19,7 @@ class LanguageRepository extends EntityRepository
     public function getLanguageId($locale)
     {
         $query = $this->getEntityManager()
-            ->createQuery("SELECT l FROM NbiTrasnationBundle:Language l WHERE l . locale = :locale");
+            ->createQuery("SELECT l FROM NbiTranslationBundle:Language l WHERE l . locale = :locale");
         $query->setParameter("locale", $locale);
         $entity = $query->getSingleResult();
         if (!$entity) {

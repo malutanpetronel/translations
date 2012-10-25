@@ -22,7 +22,7 @@ class LanguageTranslationRepository extends EntityRepository
     {
         $query = $this
             ->getEntityManager()->createQuery(
-            "SELECT t FROM NbiTrasnationBundle:LanguageTranslation t
+            "SELECT t FROM NbiTranslationBundle:LanguageTranslation t
                 WHERE t.language = :language AND t.catalogue = :catalogue"
         );
         $query->setParameter("language", $language);
