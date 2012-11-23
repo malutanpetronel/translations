@@ -34,7 +34,7 @@ class DBLoader implements LoaderInterface
     function load($resource, $locale, $domain = 'messages')
     {
         //Load on the db for the specified local
-        $language = $this->languageRepository->getLanguageId($locale);
+        $language = $this->languageRepository->getLanguage($locale);
 
         $translations = $this->transaltionRepository->getTranslations($language, $domain);
 
@@ -46,7 +46,7 @@ class DBLoader implements LoaderInterface
         foreach ($translations as $translation) {
             $catalogue->set($translation->getLanguageToken()->getToken(), $translation->getTranslation(), $domain);
         }
-
         return $catalogue;
     }
+
 }

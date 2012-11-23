@@ -33,9 +33,13 @@ services:
     calls:
       - [ addChild, ["@nbi.admin.language_translation"] ]
       - [ setContainer, ["@service_container"] ]
+      - [ setTranslationDomain, [ SonataAdminBundle ] ]
 
   nbi.admin.language_translation:
     class: Nbi\TranslationBundle\Admin\LanguageTranslationAdmin
     tags:
       - { name: sonata.admin, manager_type: orm, group: Translations, label: Translations }
     arguments: [null, Nbi\TranslationBundle\Entity\LanguageTranslation, null]
+    calls:
+      - [ setTranslationDomain, [ SonataAdminBundle ] ]
+      - [ setContainer, ["@service_container"] ]
