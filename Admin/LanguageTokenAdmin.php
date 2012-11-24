@@ -27,6 +27,16 @@ class LanguageTokenAdmin extends Admin
     }
 
     /**
+     * @param \Sonata\AdminBundle\Datagrid\DatagridMapper $datagridMapper
+     *
+     * @return void
+     */
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper->add('token');
+    }
+
+    /**
      * Configure the list
      *
      * @param \Sonata\AdminBundle\Datagrid\ListMapper $list list
