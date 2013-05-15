@@ -5,7 +5,7 @@ services:
     class: Nbi\TranslationBundle\Form\Type\TranslatedFieldType
     tags:
       - { name: form.type, alias: translatable_field}
-    arguments: [ @service_container, %locales%, [], lv]
+    arguments: [ @service_container, %locales%, [], %locale%]
 
 # Listeners
   slug.listener:
