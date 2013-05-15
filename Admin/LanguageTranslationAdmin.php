@@ -31,6 +31,7 @@ class LanguageTranslationAdmin extends Admin
     protected function configureListFields(ListMapper $list)
     {
         $list
+            ->add('languageToken')
             ->addIdentifier('language')
             ->add('translation')
             ->add(
@@ -42,6 +43,12 @@ class LanguageTranslationAdmin extends Admin
         );
     }
 
+    protected function configureDatagridFilters(DatagridMapper $datagridMapper)
+    {
+        $datagridMapper
+            ->add('languageToken')
+            ->add('translation');
+    }
     /**
      * Configure the form
      *
@@ -50,6 +57,9 @@ class LanguageTranslationAdmin extends Admin
     public function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->add('languageToken', 'sonata_type_model_list', array('required' => false), array(
+                'link_parameters' => array()
+            ))
             ->add('translation')
             ->add('catalogue')
             ->add('language')

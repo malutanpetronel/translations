@@ -47,6 +47,6 @@ class LanguageToken
 
     public function __toString()
     {
-        return $this->getToken();
+        return (string) $this->getToken();
     }
 }

@@ -89,7 +89,7 @@ class LanguageTranslation
 
     public function __toString()
     {
-        return $this->getTranslation();
+        return (string) $this->getTranslation();
     }
 
 }
