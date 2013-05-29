@@ -9,21 +9,21 @@ services:
 
 # Listeners
   slug.listener:
-        class: Nbi\TranslationBundle\Listener\SlugUpdateListener
-        calls:
-            - [ setContainer, ["@service_container"] ]
-        tags:
-            - { name: doctrine.event_listener, event: postPersist, method: postPersist }
-            - { name: doctrine.event_listener, event: postUpdate, method: postUpdate }
+    class: Nbi\TranslationBundle\Listener\SlugUpdateListener
+    calls:
+        - [ setContainer, ["@service_container"] ]
+    tags:
+        - { name: doctrine.event_listener, event: postPersist, method: postPersist }
+        - { name: doctrine.event_listener, event: postUpdate, method: postUpdate }
 
 # services
   translation.loader.db:
-        class: Nbi\TranslationBundle\Service\DBLoader
-        arguments: [@doctrine.orm.entity_manager]
-        tags:
-            - { name: translation.loader, alias: db}
-        calls:
-          - [ setContainer, ["@service_container"] ]
+    class: Nbi\TranslationBundle\Service\DBLoader
+    arguments: [@doctrine.orm.entity_manager]
+    tags:
+        - { name: translation.loader, alias: db}
+    calls:
+      - [ setContainer, ["@service_container"] ]
 
   nbi.admin.language_token:
     class: Nbi\TranslationBundle\Admin\LanguageTokenAdmin
