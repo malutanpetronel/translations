@@ -25,6 +25,16 @@ class LanguageToken
      */
     private $token;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    protected $unused = false;
+
+    /**
+     * @ORM\column(type="string", length=200, unique=true)
+     */
+    private $comment;
+
     public function getId()
     {
         return $this->id;
@@ -43,6 +53,26 @@ class LanguageToken
     public function setToken($token)
     {
         $this->token = $token;
+    }
+
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+    }
+
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    public function setUnused($unused)
+    {
+        $this->unused = $unused;
+    }
+
+    public function getUnused()
+    {
+        return $this->unused;
     }
 
     public function __toString()

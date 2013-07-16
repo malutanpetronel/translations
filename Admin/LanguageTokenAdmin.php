@@ -35,7 +35,11 @@ class LanguageTokenAdmin extends Admin
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('token');
+        $datagridMapper
+            ->add('token')
+            ->add('comment')
+            ->add('unused')
+        ;
     }
 
     /**
@@ -47,6 +51,8 @@ class LanguageTokenAdmin extends Admin
     {
         $list
             ->addIdentifier('token')
+            ->add('comment')
+            ->add('unused')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'edit' => array()
@@ -64,6 +70,9 @@ class LanguageTokenAdmin extends Admin
     {
         $formMapper
             ->add('token')
+            ->add('comment')
+            ->add('unused')
+
         ;
     }
 
