@@ -31,7 +31,7 @@ class LanguageToken
     protected $unused = false;
 
     /**
-     * @ORM\column(type="string", length=200, unique=true)
+     * @ORM\column(type="string", length=200)
      */
     private $comment;
 
