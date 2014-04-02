@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "jms/serializer": "dev-master"
+        "jms/serializer": "0.15.*@dev"
     },
     "autoload": {
         "psr-0": {
